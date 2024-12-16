@@ -7,7 +7,16 @@ This project implements parallel solutions for the 3D wave equation using variou
 - MPI+OpenMP version
 - MPI+CUDA version
 
+## Repository Structure
+
+- `sequential` branch: Sequential implementation
+- `mpi` branch: MPI implementation
+- `mpi_omp` branch: MPI+OpenMP implementation
+- `mpi_cuda` branch: MPI+CUDA implementation
+- Includes Polus cluster launch scripts
+
 ## Environment
+
 Testing was performed on the Polus computing cluster at MSU with the following specifications:
 - GPU: NVIDIA Tesla P100-SXM2-16GB
 - CPU: IBM POWER8
@@ -132,12 +141,7 @@ These visualizations demonstrate:
 2. For CPU-only systems: Use MPI+OpenMP hybrid with 2 MPI processes and 40 OpenMP threads per process
 3. The MPI+CUDA solution shows near-linear scalability, indicating efficient workload distribution
 
-## Repository Structure
-- `sequential` branch: Sequential implementation
-- `mpi` branch: MPI implementation
-- `mpi_omp` branch: MPI+OpenMP implementation
-- `mpi_cuda` branch: MPI+CUDA implementation
-- Includes Polus cluster launch scripts
+
 
 ## License and Academic Integrity Notice  
 
