@@ -1,0 +1,14 @@
+#!/bin/bash  
+#BSUB -n 10            
+#BSUB -W 0:30         
+#BSUB -o n10.%J.out  
+#BSUB -e n10.%J.err  
+#BSUB -R "span[ptile=10]" 
+#BSUB -m "polus-c3-ib"  
+
+GRID_SIZES=(512)  
+
+for grid in "${GRID_SIZES[@]}"; do  
+    echo "Running test with grid size ${grid}^3 and 10 processes"  
+        mpirun  -np 10 ./mpi $grid 0.001 20 
+done
