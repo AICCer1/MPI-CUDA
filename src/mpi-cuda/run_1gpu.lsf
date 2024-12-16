@@ -1,0 +1,20 @@
+#!/bin/bash  
+#BSUB -n 1         
+#BSUB -q normal    
+#BSUB -W 0:30    
+#BSUB -gpu "num=1:mode=exclusive_process"   
+#BSUB -o job_%J.out  
+#BSUB -e job_%J.err  
+
+
+mpirun -np 1 ./mpigpu-1 512 0.001 20 1
+
+
+
+
+
+
+
+
+
+
