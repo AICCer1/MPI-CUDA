@@ -1,0 +1,33 @@
+#!/bin/bash  
+#BSUB -n 2              
+#BSUB -W 0:30           
+#BSUB -o mpiomp.%J.out  
+#BSUB -e mpiomp.%J.err  
+#BSUB -R "affinity[core(10)]"    
+#BSUB -R "span[ptile=2]"   
+#BSUB -m "polus-c3-ib"  
+
+
+export OMP_NUM_THREADS=20 
+
+
+for grid in 512; do  
+    echo "Running test with grid size ${grid}^3"  
+        mpiexec ./mpiomp $grid 0.001 20 20
+done
+
+
+export OMP_NUM_THREADS=40
+  
+
+for grid in 512; do
+    echo "Running test with grid size ${grid}^3"  
+        mpiexec ./mpiomp $grid 0.001 20 40
+    done
+export OMP_NUM_THREADS=80
+
+for grid in 512; do
+    echo "Running test with grid size ${grid}^3"
+        mpiexec ./mpiomp $grid 0.001 20 80
+    done
+
